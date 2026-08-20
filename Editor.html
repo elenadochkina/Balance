@@ -16,7 +16,7 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             background: #f0f2f5;
             color: #1a1a2e;
-            padding: 20px;
+            padding: 16px;
             min-height: 100vh;
         }
 
@@ -31,67 +31,67 @@
             justify-content: space-between;
             align-items: center;
             background: #ffffff;
-            padding: 20px 30px;
-            border-radius: 16px;
+            padding: 14px 22px;
+            border-radius: 12px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            margin-bottom: 20px;
+            margin-bottom: 14px;
             flex-wrap: wrap;
-            gap: 15px;
+            gap: 10px;
         }
 
         .header h1 {
-            font-size: 28px;
+            font-size: 22px;
             font-weight: 700;
             color: #1a1a2e;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
 
         .header h1 span {
             background: linear-gradient(135deg, #6c5ce7, #a29bfe);
-            padding: 4px 12px;
-            border-radius: 8px;
-            font-size: 14px;
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 12px;
             color: #fff;
             font-weight: 500;
         }
 
         .header-actions {
             display: flex;
-            gap: 10px;
+            gap: 8px;
             flex-wrap: wrap;
             align-items: center;
         }
 
         .header-actions .file-info {
             background: #e8f4fd;
-            padding: 8px 16px;
-            border-radius: 8px;
-            font-size: 13px;
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 12px;
             color: #0c5460;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
         }
 
         /* ===== BUTTONS ===== */
         .btn {
-            padding: 10px 20px;
+            padding: 6px 14px;
             border: none;
-            border-radius: 10px;
-            font-size: 14px;
+            border-radius: 6px;
+            font-size: 12px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.2s ease;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 5px;
         }
 
         .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
         }
 
         .btn-primary {
@@ -142,9 +142,9 @@
         }
 
         .btn-sm {
-            padding: 6px 14px;
-            font-size: 12px;
-            border-radius: 8px;
+            padding: 4px 10px;
+            font-size: 11px;
+            border-radius: 5px;
         }
 
         .btn-copy {
@@ -156,63 +156,70 @@
             background: #00a381;
         }
 
+        .btn-copy-multiple {
+            background: #0984e3;
+            color: #fff;
+        }
+
+        .btn-copy-multiple:hover {
+            background: #0873c7;
+        }
+
         /* ===== TOOLBAR ===== */
         .toolbar {
             background: #ffffff;
-            padding: 15px 20px;
-            border-radius: 16px;
+            padding: 12px 18px;
+            border-radius: 12px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            margin-bottom: 20px;
+            margin-bottom: 14px;
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
+            gap: 10px;
             align-items: center;
         }
 
         .toolbar .filter-group {
             display: flex;
             flex-direction: column;
-            gap: 4px;
-            min-width: 140px;
+            gap: 2px;
+            min-width: 100px;
         }
 
         .toolbar .filter-group label {
-            font-size: 11px;
+            font-size: 10px;
             font-weight: 600;
             color: #636e72;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
-        .toolbar .filter-group select,
-        .toolbar .filter-group input {
-            padding: 8px 12px;
+        .toolbar .filter-group select {
+            padding: 5px 10px;
             border: 2px solid #dfe6e9;
-            border-radius: 8px;
-            font-size: 13px;
+            border-radius: 6px;
+            font-size: 12px;
             background: #fafafa;
             transition: border-color 0.2s;
             width: 100%;
             cursor: pointer;
         }
 
-        .toolbar .filter-group select:focus,
-        .toolbar .filter-group input:focus {
+        .toolbar .filter-group select:focus {
             outline: none;
             border-color: #6c5ce7;
         }
 
         .toolbar .search-box {
             flex: 2;
-            min-width: 200px;
+            min-width: 160px;
         }
 
         .toolbar .search-box input {
             width: 100%;
-            padding: 8px 14px;
+            padding: 6px 12px;
             border: 2px solid #dfe6e9;
-            border-radius: 8px;
-            font-size: 14px;
+            border-radius: 6px;
+            font-size: 13px;
             transition: border-color 0.2s;
         }
 
@@ -222,7 +229,7 @@
         }
 
         .toolbar .stats {
-            font-size: 14px;
+            font-size: 13px;
             color: #636e72;
             white-space: nowrap;
             margin-left: auto;
@@ -232,18 +239,32 @@
             color: #1a1a2e;
         }
 
+        .toolbar .bulk-actions {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+            padding: 4px 10px;
+            background: #f8f9fa;
+            border-radius: 6px;
+            border: 1px solid #dfe6e9;
+        }
+
+        .toolbar .bulk-actions .label {
+            font-size: 11px;
+            color: #636e72;
+            font-weight: 500;
+        }
+
         /* ===== TABLE ===== */
         .table-wrapper {
             background: #ffffff;
-            border-radius: 16px;
+            border-radius: 12px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
             overflow: hidden;
-            margin-bottom: 20px;
         }
 
         .table-scroll {
             overflow-x: auto;
-            padding: 0;
             max-height: 70vh;
             overflow-y: auto;
         }
@@ -263,18 +284,20 @@
         }
 
         table th {
-            padding: 10px 12px;
+            padding: 6px 10px;
             text-align: left;
             font-weight: 600;
             color: #2d3436;
             white-space: nowrap;
             background: #f8f9fa;
+            font-size: 11px;
         }
 
         table td {
-            padding: 8px 12px;
+            padding: 5px 10px;
             border-bottom: 1px solid #f0f2f5;
             vertical-align: middle;
+            font-size: 12px;
         }
 
         table tbody tr:hover {
@@ -285,13 +308,27 @@
             border-bottom: none;
         }
 
+        table tbody tr.selected {
+            background: #e3f0ff;
+        }
+
+        table tbody tr.selected:hover {
+            background: #d4e8ff;
+        }
+
+        table td input[type="checkbox"] {
+            cursor: pointer;
+            width: 16px;
+            height: 16px;
+        }
+
         table td input,
         table td select {
             width: 100%;
-            padding: 6px 8px;
+            padding: 4px 6px;
             border: 2px solid transparent;
-            border-radius: 6px;
-            font-size: 13px;
+            border-radius: 4px;
+            font-size: 12px;
             font-family: inherit;
             background: transparent;
             transition: all 0.2s;
@@ -311,20 +348,20 @@
         }
 
         table td input[type="number"] {
-            width: 100px;
-            min-width: 80px;
+            width: 80px;
+            min-width: 60px;
         }
 
         table td .row-actions {
             display: flex;
-            gap: 4px;
+            gap: 3px;
             flex-wrap: wrap;
         }
 
         table td .row-actions .btn {
-            padding: 4px 10px;
-            font-size: 11px;
-            border-radius: 6px;
+            padding: 3px 8px;
+            font-size: 10px;
+            border-radius: 4px;
         }
 
         .text-income { color: #2ecc71; font-weight: 600; }
@@ -332,9 +369,9 @@
 
         .status-badge {
             display: inline-block;
-            padding: 2px 10px;
-            border-radius: 12px;
-            font-size: 11px;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 10px;
             font-weight: 600;
         }
         .status-paid { background: #d4edda; color: #155724; }
@@ -345,31 +382,55 @@
 
         .category-tag {
             display: inline-block;
-            padding: 2px 10px;
-            border-radius: 12px;
-            font-size: 11px;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 10px;
             font-weight: 600;
         }
         .income-tag { background: #d4edda; color: #155724; }
         .expense-tag { background: #f8d7da; color: #721c24; }
-        .balance-tag { background: #d1ecf1; color: #0c5460; }
 
         .empty-state {
-            padding: 60px 20px;
+            padding: 40px 20px;
             text-align: center;
             color: #636e72;
         }
 
         .empty-state .icon {
-            font-size: 48px;
-            margin-bottom: 15px;
+            font-size: 36px;
+            margin-bottom: 10px;
             display: block;
         }
 
         .empty-state h4 {
-            font-size: 18px;
+            font-size: 15px;
             color: #2d3436;
-            margin-bottom: 8px;
+            margin-bottom: 4px;
+        }
+
+        .select-all-row {
+            background: #f8f9fa;
+            border-bottom: 2px solid #dfe6e9;
+        }
+
+        .select-all-row td {
+            padding: 4px 10px;
+            font-size: 11px;
+            color: #636e72;
+        }
+
+        .select-all-row input[type="checkbox"] {
+            cursor: pointer;
+            width: 16px;
+            height: 16px;
+        }
+
+        .select-all-row .select-all-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            font-weight: 500;
         }
 
         /* ===== MODAL ===== */
@@ -394,12 +455,12 @@
 
         .modal {
             background: #ffffff;
-            border-radius: 20px;
+            border-radius: 16px;
             max-width: 560px;
             width: 100%;
             max-height: 90vh;
             overflow-y: auto;
-            padding: 30px;
+            padding: 25px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
             animation: modalIn 0.25s ease;
         }
@@ -413,19 +474,19 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
             border-bottom: 2px solid #f0f2f5;
         }
 
         .modal-header h2 {
-            font-size: 20px;
+            font-size: 18px;
         }
 
         .modal-close {
             background: none;
             border: none;
-            font-size: 28px;
+            font-size: 24px;
             cursor: pointer;
             color: #636e72;
             transition: color 0.2s;
@@ -436,25 +497,25 @@
         }
 
         .modal .form-group {
-            margin-bottom: 14px;
+            margin-bottom: 12px;
         }
 
         .modal .form-group label {
             display: block;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 600;
             color: #2d3436;
-            margin-bottom: 4px;
+            margin-bottom: 3px;
         }
 
         .modal .form-group input,
         .modal .form-group select,
         .modal .form-group textarea {
             width: 100%;
-            padding: 10px 14px;
+            padding: 8px 12px;
             border: 2px solid #dfe6e9;
-            border-radius: 10px;
-            font-size: 14px;
+            border-radius: 8px;
+            font-size: 13px;
             transition: border-color 0.2s;
             font-family: inherit;
             background: #fafafa;
@@ -468,17 +529,23 @@
             background: #fff;
         }
 
+        .modal .form-group textarea {
+            resize: vertical;
+            min-height: 40px;
+            font-size: 12px;
+        }
+
         .modal .form-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 15px;
+            gap: 12px;
         }
 
         .modal .form-actions {
             display: flex;
-            gap: 10px;
-            margin-top: 20px;
-            padding-top: 20px;
+            gap: 8px;
+            margin-top: 16px;
+            padding-top: 16px;
             border-top: 2px solid #f0f2f5;
             flex-wrap: wrap;
         }
@@ -486,7 +553,7 @@
         .modal .form-actions .btn {
             flex: 1;
             justify-content: center;
-            min-width: 100px;
+            min-width: 80px;
         }
 
         /* ===== TOAST ===== */
@@ -494,11 +561,11 @@
             position: fixed;
             bottom: 30px;
             right: 30px;
-            padding: 16px 24px;
-            border-radius: 12px;
+            padding: 12px 20px;
+            border-radius: 10px;
             color: #fff;
             font-weight: 600;
-            font-size: 14px;
+            font-size: 13px;
             box-shadow: 0 8px 30px rgba(0,0,0,0.2);
             z-index: 3000;
             transform: translateY(120px);
@@ -519,29 +586,30 @@
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
-            .toolbar .filter-group { min-width: 120px; }
+            .toolbar .filter-group { min-width: 80px; }
         }
 
         @media (max-width: 768px) {
             body { padding: 10px; }
-            .header { padding: 15px; flex-direction: column; align-items: stretch; gap: 10px; }
-            .header h1 { font-size: 22px; justify-content: center; }
+            .header { padding: 10px 14px; flex-direction: column; align-items: stretch; gap: 6px; }
+            .header h1 { font-size: 18px; justify-content: center; }
             .header-actions { justify-content: center; }
             .toolbar { flex-direction: column; align-items: stretch; }
             .toolbar .stats { text-align: center; margin-left: 0; }
             .toolbar .filter-group { min-width: unset; }
-            .modal { padding: 20px; margin: 10px; }
+            .toolbar .bulk-actions { justify-content: center; }
+            .modal { padding: 18px; margin: 10px; }
             .modal .form-row { grid-template-columns: 1fr; }
-            table { font-size: 12px; }
-            table th, table td { padding: 6px 8px; }
-            table td input[type="number"] { width: 70px; min-width: 60px; }
+            table { font-size: 11px; }
+            table th, table td { padding: 4px 6px; }
+            table td input[type="number"] { width: 60px; min-width: 50px; }
         }
 
         @media (max-width: 480px) {
-            .header h1 { font-size: 18px; }
-            .header h1 span { font-size: 11px; padding: 2px 10px; }
-            .btn { padding: 8px 14px; font-size: 12px; }
-            .header-actions .file-info { font-size: 11px; padding: 4px 10px; }
+            .header h1 { font-size: 16px; }
+            .header h1 span { font-size: 9px; padding: 2px 6px; }
+            .btn { padding: 4px 10px; font-size: 10px; }
+            .header-actions .file-info { font-size: 10px; padding: 3px 8px; }
         }
     </style>
 </head>
@@ -553,7 +621,7 @@
     <header class="header">
         <h1>
             ✏️ Редактор данных
-            <span>v1.1</span>
+            <span>v1.3</span>
         </h1>
         <div class="header-actions">
             <span class="file-info" id="fileInfo">
@@ -564,6 +632,7 @@
             <button class="btn btn-primary" onclick="openAddModal()">➕ Добавить</button>
             <button class="btn btn-outline btn-sm" onclick="exportJSON()">📤 Экспорт</button>
             <button class="btn btn-outline btn-sm" onclick="document.getElementById('importInput').click()">📥 Импорт</button>
+            <button class="btn btn-warning btn-sm" onclick="downloadTemplate()">📋 Шаблон</button>
             <input type="file" id="importInput" accept=".json" style="display:none" onchange="importJSON(event)">
         </div>
     </header>
@@ -606,7 +675,13 @@
         </div>
 
         <div class="search-box">
-            <input type="text" id="searchInput" placeholder="🔍 Поиск по всем полям..." oninput="applyFilters()">
+            <input type="text" id="searchInput" placeholder="🔍 Поиск..." oninput="applyFilters()">
+        </div>
+
+        <div class="bulk-actions">
+            <span class="label">✏️ Массовое:</span>
+            <button class="btn btn-copy-multiple btn-sm" onclick="copySelected()">📋 Копировать</button>
+            <button class="btn btn-danger btn-sm" onclick="deleteSelected()">🗑 Удалить</button>
         </div>
 
         <div class="stats" id="statsInfo">
@@ -621,22 +696,25 @@
             <table>
                 <thead>
                     <tr>
-                        <th style="width:40px;">#</th>
-                        <th style="min-width:110px;">Дата</th>
-                        <th style="min-width:100px;">Категория</th>
-                        <th style="min-width:120px;">Подкат.1</th>
-                        <th style="min-width:120px;">Подкат.2</th>
-                        <th style="min-width:120px;">Подкат.3</th>
-                        <th style="min-width:100px;">Доход</th>
-                        <th style="min-width:100px;">Расход</th>
-                        <th style="min-width:120px;">Статус</th>
-                        <th style="min-width:150px;">Комментарий</th>
-                        <th style="min-width:160px;">Действия</th>
+                        <th style="width:30px;">
+                            <input type="checkbox" id="selectAll" onchange="toggleSelectAll()">
+                        </th>
+                        <th style="width:30px;">#</th>
+                        <th style="min-width:100px;">Дата</th>
+                        <th style="min-width:90px;">Категория</th>
+                        <th style="min-width:100px;">Подкат.1</th>
+                        <th style="min-width:100px;">Подкат.2</th>
+                        <th style="min-width:100px;">Подкат.3</th>
+                        <th style="min-width:80px;">Доход</th>
+                        <th style="min-width:80px;">Расход</th>
+                        <th style="min-width:100px;">Статус</th>
+                        <th style="min-width:130px;">Комментарий</th>
+                        <th style="min-width:100px;">Действия</th>
                     </tr>
                 </thead>
                 <tbody id="tableBody">
                     <tr>
-                        <td colspan="11">
+                        <td colspan="12">
                             <div class="empty-state">
                                 <span class="icon">📂</span>
                                 <h4>Нет данных</h4>
@@ -663,7 +741,7 @@
 
             <div class="form-group">
                 <label>📅 Дата</label>
-                <input type="date" id="formDate" required>
+                <input type="date" id="formDate" required onchange="updateMonthFromDate()">
             </div>
 
             <div class="form-group">
@@ -737,6 +815,7 @@
     let data = [];
     let filteredData = [];
     let currentEditIndex = -1;
+    let selectedRows = new Set();
 
     const STATUSES = ['Оплачено', 'Запланировано', 'Просрочено', 'В процессе', 'Не оплачено'];
     const CATEGORIES = ['Доходы', 'Расходы'];
@@ -747,7 +826,21 @@
     };
 
     // ============================================================
-    //  INIT - загружаем data.json
+    //  HELPER: обновление month из date
+    // ============================================================
+
+    function getMonthFromDate(dateStr) {
+        if (!dateStr) return '';
+        return dateStr.slice(0, 7); // "YYYY-MM"
+    }
+
+    function updateMonthFromDate() {
+        // Эта функция вызывается при изменении даты в форме
+        // Но мы обновляем month при сохранении
+    }
+
+    // ============================================================
+    //  INIT
     // ============================================================
 
     async function loadData() {
@@ -797,8 +890,6 @@
         const val = this.value;
         document.getElementById('yearGroup').style.display = (val === 'year' || val === 'month') ? 'block' : 'none';
         document.getElementById('monthGroup').style.display = (val === 'month') ? 'block' : 'none';
-        
-        // При смене периода сбрасываем выбор года/месяца на "Все"
         if (val === 'all') {
             document.getElementById('yearSelect').value = 'all';
             document.getElementById('monthSelect').value = 'all';
@@ -821,7 +912,6 @@
 
         let filtered = [...data];
 
-        // Период
         if (periodType === 'year' && yearVal !== 'all') {
             filtered = filtered.filter(item => {
                 if (!item.date) return false;
@@ -842,7 +932,6 @@
             }
         }
 
-        // Поиск
         if (search) {
             filtered = filtered.filter(item => {
                 const str = JSON.stringify(item).toLowerCase();
@@ -851,6 +940,7 @@
         }
 
         filteredData = filtered;
+        selectedRows.clear();
         renderTable();
         updateStats();
     }
@@ -868,7 +958,7 @@
                 'Нет записей, соответствующих фильтру';
             tbody.innerHTML = `
                 <tr>
-                    <td colspan="11">
+                    <td colspan="12">
                         <div class="empty-state">
                             <span class="icon">📭</span>
                             <h4>${msg}</h4>
@@ -882,6 +972,7 @@
         let html = '';
         filteredData.forEach((item, idx) => {
             const realIndex = data.indexOf(item);
+            const isSelected = selectedRows.has(realIndex);
             const dateStr = item.date ? item.date.split('-').reverse().join('.') : '';
 
             const catClass = item.category === 'Доходы' ? 'income-tag' : 'expense-tag';
@@ -900,11 +991,10 @@
             const expenseStr = (item.expense || 0) > 0 ?
                 (item.expense || 0).toLocaleString('ru-RU', { minimumFractionDigits: 2 }) : '';
 
-            const incomeDisplay = (item.income || 0) > 0 ? '₽ ' + incomeStr : '';
-            const expenseDisplay = (item.expense || 0) > 0 ? '₽ ' + expenseStr : '';
-
             html += `
-                <tr>
+                <tr class="${isSelected ? 'selected' : ''}">
+                    <td><input type="checkbox" class="row-checkbox" data-index="${realIndex}" 
+                               ${isSelected ? 'checked' : ''} onchange="toggleRow(${realIndex})"></td>
                     <td>${idx + 1}</td>
                     <td><input type="date" value="${item.date || ''}" 
                                onchange="updateField(${realIndex}, 'date', this.value)"></td>
@@ -933,10 +1023,10 @@
                     </td>
                     <td><input type="text" value="${item.comment || ''}" 
                                onchange="updateField(${realIndex}, 'comment', this.value)"
-                               style="font-size:12px;"></td>
+                               style="font-size:11px;"></td>
                     <td>
                         <div class="row-actions">
-                            <button class="btn btn-copy btn-sm" onclick="copyRecord(${realIndex})" title="Копировать строку">📋</button>
+                            <button class="btn btn-copy btn-sm" onclick="copySingleRow(${realIndex})" title="Копировать">📋</button>
                             <button class="btn btn-primary btn-sm" onclick="openEditModal(${realIndex})">✏️</button>
                             <button class="btn btn-danger btn-sm" onclick="deleteRecord(${realIndex})">🗑</button>
                         </div>
@@ -946,6 +1036,136 @@
         });
 
         tbody.innerHTML = html;
+        updateSelectAllState();
+    }
+
+    // ============================================================
+    //  SELECT ALL
+    // ============================================================
+
+    function toggleSelectAll() {
+        const checked = document.getElementById('selectAll').checked;
+        if (checked) {
+            filteredData.forEach((item) => {
+                const realIndex = data.indexOf(item);
+                selectedRows.add(realIndex);
+            });
+        } else {
+            selectedRows.clear();
+        }
+        renderTable();
+        updateSelectAllState();
+    }
+
+    function toggleRow(index) {
+        if (selectedRows.has(index)) {
+            selectedRows.delete(index);
+        } else {
+            selectedRows.add(index);
+        }
+        updateSelectAllState();
+    }
+
+    function updateSelectAllState() {
+        const selectAll = document.getElementById('selectAll');
+        const visibleCount = filteredData.length;
+        const selectedCount = filteredData.filter(item => selectedRows.has(data.indexOf(item))).length;
+        if (visibleCount === 0) {
+            selectAll.checked = false;
+            selectAll.indeterminate = false;
+        } else if (selectedCount === visibleCount) {
+            selectAll.checked = true;
+            selectAll.indeterminate = false;
+        } else if (selectedCount > 0) {
+            selectAll.checked = false;
+            selectAll.indeterminate = true;
+        } else {
+            selectAll.checked = false;
+            selectAll.indeterminate = false;
+        }
+    }
+
+    // ============================================================
+    //  BULK OPERATIONS
+    // ============================================================
+
+    function getSelectedItems() {
+        return Array.from(selectedRows)
+            .map(idx => data[idx])
+            .filter(item => item !== undefined);
+    }
+
+    function copySelected() {
+        const selected = getSelectedItems();
+        if (selected.length === 0) {
+            showToast('⚠️ Не выбрано ни одной строки для копирования', 'warning');
+            return;
+        }
+
+        const copies = selected.map((item, i) => {
+            const copy = JSON.parse(JSON.stringify(item));
+            copy.id = data.length + i + 1;
+            // 👇 АВТОМАТИЧЕСКИ ОБНОВЛЯЕМ month ИЗ date
+            if (copy.date) {
+                copy.month = copy.date.slice(0, 7);
+            }
+            copy.comment = (copy.comment ? copy.comment + ' | ' : '') + '(копия #' + (i + 1) + ')';
+            return copy;
+        });
+
+        data.push(...copies);
+        selectedRows.clear();
+        populateYearFilter();
+        applyFilters();
+        updateStats();
+        document.getElementById('recordCount').textContent = data.length + ' записей';
+        autoSave();
+        showToast(`📋 Скопировано ${copies.length} записей`, 'success');
+    }
+
+    function copySingleRow(index) {
+        if (index < 0 || index >= data.length) return;
+
+        const original = data[index];
+        const copy = JSON.parse(JSON.stringify(original));
+        copy.id = data.length + 1;
+        // 👇 АВТОМАТИЧЕСКИ ОБНОВЛЯЕМ month ИЗ date
+        if (copy.date) {
+            copy.month = copy.date.slice(0, 7);
+        }
+        copy.comment = (copy.comment ? copy.comment + ' | ' : '') + '(копия)';
+
+        data.push(copy);
+        selectedRows.clear();
+        populateYearFilter();
+        applyFilters();
+        updateStats();
+        document.getElementById('recordCount').textContent = data.length + ' записей';
+        autoSave();
+        showToast('📋 Строка скопирована (# ' + data.length + ')', 'success');
+    }
+
+    function deleteSelected() {
+        const selected = getSelectedItems();
+        if (selected.length === 0) {
+            showToast('⚠️ Не выбрано ни одной строки для удаления', 'warning');
+            return;
+        }
+
+        if (!confirm(`Удалить ${selected.length} записей?`)) return;
+
+        const sortedIndices = Array.from(selectedRows).sort((a, b) => b - a);
+        sortedIndices.forEach(idx => {
+            data.splice(idx, 1);
+        });
+
+        selectedRows.clear();
+        populateYearFilter();
+        applyFilters();
+        updateStats();
+        document.getElementById('recordCount').textContent = data.length + ' записей';
+        autoSave();
+        showToast(`🗑 Удалено ${selected.length} записей`, 'info');
     }
 
     // ============================================================
@@ -955,44 +1175,22 @@
     function updateField(index, field, value) {
         if (index >= 0 && index < data.length) {
             data[index][field] = value;
-            // Обновляем filteredData если запись в нем
+            
+            // 👇 Если меняем date — автоматически обновляем month
+            if (field === 'date' && value) {
+                data[index].month = value.slice(0, 7);
+            }
+            
             const filteredIdx = filteredData.indexOf(data[index]);
             if (filteredIdx !== -1) {
                 filteredData[filteredIdx][field] = value;
+                if (field === 'date' && value) {
+                    filteredData[filteredIdx].month = value.slice(0, 7);
+                }
             }
             updateStats();
             autoSave();
         }
-    }
-
-    // ============================================================
-    //  COPY RECORD
-    // ============================================================
-
-    function copyRecord(index) {
-        if (index < 0 || index >= data.length) return;
-
-        const original = data[index];
-        // Создаем копию с новым id и добавляем в конец
-        const copy = JSON.parse(JSON.stringify(original));
-        copy.id = data.length + 1;
-        // Добавляем пометку в комментарий, что это копия
-        copy.comment = (copy.comment ? copy.comment + ' | ' : '') + '(копия)';
-
-        data.push(copy);
-        applyFilters();
-        updateStats();
-        document.getElementById('recordCount').textContent = data.length + ' записей';
-        autoSave();
-        showToast('📋 Строка скопирована (# ' + (data.length) + ')', 'success');
-
-        // Прокручиваем к новой строке
-        setTimeout(() => {
-            const rows = document.querySelectorAll('#tableBody tr');
-            if (rows.length > 0) {
-                rows[rows.length - 1].scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }
-        }, 100);
     }
 
     // ============================================================
@@ -1005,7 +1203,8 @@
         document.getElementById('modalTitle').textContent = '➕ Добавить запись';
         document.getElementById('deleteBtn').style.display = 'none';
 
-        document.getElementById('formDate').value = new Date().toISOString().slice(0, 10);
+        const today = new Date().toISOString().slice(0, 10);
+        document.getElementById('formDate').value = today;
         document.getElementById('formCategory').value = '';
         document.getElementById('formSub1').value = '';
         document.getElementById('formSub2').value = '';
@@ -1064,11 +1263,12 @@
             return;
         }
 
+        // 👇 Автоматически вычисляем month из date
         const month = date.slice(0, 7);
         const record = {
             id: index === -1 ? data.length + 1 : data[index].id || data.length + 1,
             date,
-            month,
+            month,  // 👈 Автоматически установлен
             category,
             subcategory1: sub1,
             subcategory2: sub2,
@@ -1081,7 +1281,6 @@
 
         if (index === -1) {
             data.push(record);
-            // Обновляем список годов
             populateYearFilter();
         } else {
             data[index] = record;
@@ -1106,6 +1305,7 @@
     function deleteRecord(index) {
         if (!confirm('Удалить эту запись?')) return;
         data.splice(index, 1);
+        selectedRows.delete(index);
         populateYearFilter();
         applyFilters();
         updateStats();
@@ -1129,6 +1329,51 @@
 
     function closeModal() {
         document.getElementById('modalOverlay').classList.remove('active');
+    }
+
+    // ============================================================
+    //  TEMPLATE
+    // ============================================================
+
+    function downloadTemplate() {
+        const template = [
+            {
+                "id": 1,
+                "date": "2026-08-01",
+                "month": "2026-08",
+                "category": "Доходы",
+                "subcategory1": "Пример",
+                "subcategory2": "Категория",
+                "subcategory3": "Детали",
+                "income": 10000,
+                "expense": 0,
+                "status": "Оплачено",
+                "comment": "Пример записи дохода"
+            },
+            {
+                "id": 2,
+                "date": "2026-08-15",
+                "month": "2026-08",
+                "category": "Расходы",
+                "subcategory1": "Пример",
+                "subcategory2": "Платеж",
+                "subcategory3": "Коммуналка",
+                "income": 0,
+                "expense": 5000,
+                "status": "Оплачено",
+                "comment": "Пример записи расхода"
+            }
+        ];
+
+        const json = JSON.stringify(template, null, 2);
+        const blob = new Blob([json], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'template_import.json';
+        a.click();
+        URL.revokeObjectURL(url);
+        showToast('📋 Шаблон скачан', 'success');
     }
 
     // ============================================================
@@ -1174,9 +1419,17 @@
             try {
                 const imported = JSON.parse(e.target.result);
                 if (!Array.isArray(imported)) throw new Error('Неверный формат');
-                
+
+                // 👇 Автоматически обновляем month из date при импорте
+                imported.forEach(item => {
+                    if (item.date && !item.month) {
+                        item.month = item.date.slice(0, 7);
+                    }
+                });
+
                 if (confirm('Импортировать ' + imported.length + ' записей? Текущие данные будут заменены.')) {
                     data = imported;
+                    selectedRows.clear();
                     populateYearFilter();
                     applyFilters();
                     updateStats();
