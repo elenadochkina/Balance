@@ -327,12 +327,6 @@
             white-space: nowrap;
             background: #f8f9fa;
             font-size: 11px;
-            cursor: pointer;
-            user-select: none;
-        }
-
-        table th:hover {
-            color: #6c5ce7;
         }
 
         table td {
@@ -350,19 +344,71 @@
             border-bottom: none;
         }
 
-        table tbody tr.main-row {
+        /* ===== GROUP ROW ===== */
+        table tbody tr.group-row {
             cursor: pointer;
+            background: #fafbfc;
+            font-weight: 500;
         }
 
-        table tbody tr.main-row .expand-icon {
+        table tbody tr.group-row:hover {
+            background: #f0f2f5;
+        }
+
+        table tbody tr.group-row .expand-icon {
             display: inline-block;
             transition: transform 0.2s;
             font-size: 10px;
             color: #636e72;
+            margin-right: 4px;
         }
 
-        table tbody tr.main-row .expand-icon.expanded {
+        table tbody tr.group-row .expand-icon.expanded {
             transform: rotate(90deg);
+        }
+
+        .group-income {
+            border-left: 3px solid #2ecc71;
+        }
+
+        .group-expense {
+            border-left: 3px solid #e74c3c;
+        }
+
+        /* ===== DETAIL ROW ===== */
+        table tbody tr.detail-row td {
+            padding: 4px 10px 4px 30px;
+            background: #ffffff;
+            font-size: 12px;
+        }
+
+        table tbody tr.detail-row .detail-indent {
+            display: inline-block;
+            width: 16px;
+        }
+
+        table tbody tr.detail-row .sub2-text {
+            color: #2d3436;
+        }
+
+        table tbody tr.detail-row .sub3-text {
+            color: #636e72;
+            font-size: 11px;
+        }
+
+        table tbody tr.detail-row .comment-text {
+            color: #636e72;
+            font-size: 11px;
+            max-width: 150px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: inline-block;
+        }
+
+        table tbody tr.detail-row .date-text {
+            color: #636e72;
+            font-size: 11px;
         }
 
         .text-income {
@@ -373,6 +419,16 @@
         .text-expense {
             color: #e74c3c;
             font-weight: 600;
+        }
+
+        .text-income-sum {
+            color: #2ecc71;
+            font-weight: 700;
+        }
+
+        .text-expense-sum {
+            color: #e74c3c;
+            font-weight: 700;
         }
 
         .status-badge {
@@ -431,43 +487,13 @@
             color: #636e72;
         }
 
-        /* ===== DETAIL ROW ===== */
-        .detail-row td {
-            padding: 6px 10px 10px 34px;
-            background: #fafbfc;
-            border-bottom: 2px solid #f0f2f5;
-        }
-
-        .detail-row .detail-grid {
-            display: grid;
-            grid-template-columns: auto 1fr;
-            gap: 3px 16px;
-            font-size: 12px;
-            color: #2d3436;
-        }
-
-        .detail-row .detail-grid .detail-label {
-            font-weight: 500;
-            color: #636e72;
-            font-size: 11px;
-        }
-
-        .detail-row .detail-grid .detail-value {
-            font-weight: 400;
-            font-size: 12px;
-        }
-
-        .detail-row .detail-grid .detail-value.empty {
-            color: #b2bec3;
-            font-style: italic;
-        }
-
         /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
             .summary { grid-template-columns: repeat(2, 1fr); }
             .filters { gap: 8px; }
             .filter-group { flex: 1 1 100px; min-width: 85px; }
             table th, table td { padding: 4px 8px; font-size: 11px; }
+            table tbody tr.detail-row .comment-text { max-width: 100px; }
         }
 
         @media (max-width: 768px) {
@@ -484,9 +510,8 @@
             .summary-card .value { font-size: 18px; }
             .table-wrapper .table-header { flex-direction: column; text-align: center; }
             table th, table td { padding: 4px 6px; font-size: 10px; }
-            .detail-row td { padding: 4px 8px 8px 18px; }
-            .detail-row .detail-grid { font-size: 11px; gap: 2px 10px; }
-            .detail-row .detail-grid .detail-label { font-size: 10px; }
+            table tbody tr.detail-row td { padding: 3px 6px 3px 16px; font-size: 10px; }
+            table tbody tr.detail-row .comment-text { max-width: 60px; }
         }
 
         @media (max-width: 480px) {
@@ -498,6 +523,7 @@
             .header-actions .file-info { font-size: 10px; padding: 3px 8px; }
             .filter-group select { font-size: 11px; padding: 4px 8px; }
             .filter-group .month-nav .month-display { font-size: 11px; min-width: 60px; }
+            table tbody tr.detail-row .comment-text { max-width: 40px; }
         }
     </style>
 </head>
@@ -509,7 +535,7 @@
     <header class="header">
         <h1>
             📊 Доходы / Расходы
-            <span>v2.0</span>
+            <span>v2.1</span>
         </h1>
         <div class="header-actions">
             <span class="file-info" id="fileInfo">
@@ -590,17 +616,19 @@
                 <thead>
                     <tr>
                         <th style="width:24px;"></th>
-                        <th onclick="sortTable('date')" style="min-width:75px;">Дата</th>
-                        <th onclick="sortTable('category')" style="min-width:80px;">Категория</th>
-                        <th onclick="sortTable('subcategory1')" style="min-width:90px;">Подкат.1</th>
-                        <th onclick="sortTable('income')" style="min-width:80px;">Доход (+)</th>
-                        <th onclick="sortTable('expense')" style="min-width:80px;">Расход (-)</th>
-                        <th onclick="sortTable('status')" style="min-width:80px;">Статус</th>
+                        <th style="min-width:80px;">Категория</th>
+                        <th style="min-width:100px;">Подкат.1</th>
+                        <th style="min-width:80px;">Подкат.2</th>
+                        <th style="min-width:80px;">Подкат.3</th>
+                        <th style="min-width:120px;">Комментарий</th>
+                        <th style="min-width:80px;">Доход (+)</th>
+                        <th style="min-width:80px;">Расход (-)</th>
+                        <th style="min-width:75px;">Дата</th>
                     </tr>
                 </thead>
                 <tbody id="tableBody">
                     <tr>
-                        <td colspan="7">
+                        <td colspan="9">
                             <div class="empty-state">
                                 <span class="icon">📂</span>
                                 <h4>Загрузка данных...</h4>
@@ -622,9 +650,11 @@
 
     let transactions = [];
     let currentMonth = '';
-    let currentSort = { field: 'category', asc: true };
     const DATA_FILE = 'data.json';
     const START_BALANCE = 353175; // Баланс на конец июля 2026
+
+    // Храним состояние раскрытых групп
+    let expandedGroups = new Set();
 
     // ============================================================
     //  LOAD DATA
@@ -688,6 +718,7 @@
     }
 
     function reloadData() {
+        expandedGroups.clear();
         loadData();
     }
 
@@ -719,13 +750,14 @@
         if (type === 'income') data = data.filter(t => (t.income || 0) > 0);
         else if (type === 'expense') data = data.filter(t => (t.expense || 0) > 0);
 
-        // Сортировка: сначала по категории, потом по подкатегории 1
+        // Сортировка: сначала Доходы, потом Расходы, внутри по подкатегории 1
         data.sort((a, b) => {
-            const catA = a.category || '';
-            const catB = b.category || '';
-            if (catA !== catB) {
-                return catA.localeCompare(catB);
-            }
+            // Сначала по категории (Доходы → Расходы)
+            const catOrder = { 'Доходы': 0, 'Расходы': 1 };
+            const catA = catOrder[a.category] ?? 2;
+            const catB = catOrder[b.category] ?? 2;
+            if (catA !== catB) return catA - catB;
+            // Затем по подкатегории 1
             const subA = a.subcategory1 || '';
             const subB = b.subcategory1 || '';
             return subA.localeCompare(subB);
@@ -735,10 +767,8 @@
     }
 
     // ============================================================
-    //  TABLE
+    //  TABLE (иерархическая)
     // ============================================================
-
-    let expandedRow = null;
 
     function renderTable(data) {
         const tbody = document.getElementById('tableBody');
@@ -749,7 +779,7 @@
                 'Нет записей за выбранный период';
             tbody.innerHTML = `
                 <tr>
-                    <td colspan="7">
+                    <td colspan="9">
                         <div class="empty-state">
                             <span class="icon">📭</span>
                             <h4>${msg}</h4>
@@ -761,69 +791,126 @@
             return;
         }
 
+        // Группируем по категории + подкатегория 1
+        const groups = {};
+        data.forEach(item => {
+            const key = (item.category || '') + '|' + (item.subcategory1 || '');
+            if (!groups[key]) {
+                groups[key] = {
+                    category: item.category || '',
+                    sub1: item.subcategory1 || '',
+                    items: [],
+                    totalIncome: 0,
+                    totalExpense: 0
+                };
+            }
+            groups[key].items.push(item);
+            groups[key].totalIncome += item.income || 0;
+            groups[key].totalExpense += item.expense || 0;
+        });
+
+        // Сортируем группы: сначала Доходы, потом Расходы
+        const sortedKeys = Object.keys(groups).sort((a, b) => {
+            const catOrder = { 'Доходы': 0, 'Расходы': 1 };
+            const catA = groups[a].category;
+            const catB = groups[b].category;
+            const orderA = catOrder[catA] ?? 2;
+            const orderB = catOrder[catB] ?? 2;
+            if (orderA !== orderB) return orderA - orderB;
+            return groups[a].sub1.localeCompare(groups[b].sub1);
+        });
+
         let html = '';
-        data.forEach((t, idx) => {
-            const dateStr = t.date ? t.date.split('-').reverse().join('.') : '';
-            const catTag = t.category === 'Доходы' ? 'income-tag' : 'expense-tag';
+        let rowIndex = 0;
 
-            const statusMap = {
-                'Оплачено': 'status-paid',
-                'Запланировано': 'status-planned',
-                'Просрочено': 'status-overdue',
-                'В процессе': 'status-progress',
-                'Не оплачено': 'status-notpaid'
-            };
-            const statusClass = statusMap[t.status] || 'status-notpaid';
+        sortedKeys.forEach(key => {
+            const group = groups[key];
+            const isExpanded = expandedGroups.has(key);
+            const groupId = 'group_' + rowIndex;
 
-            const incomeStr = (t.income || 0) > 0 ?
-                (t.income || 0).toLocaleString('ru-RU', { minimumFractionDigits: 2 }) : '';
-            const expenseStr = (t.expense || 0) > 0 ?
-                (t.expense || 0).toLocaleString('ru-RU', { minimumFractionDigits: 2 }) : '';
+            // Определяем класс для группы
+            const groupClass = group.category === 'Доходы' ? 'group-income' : 'group-expense';
+            const catTag = group.category === 'Доходы' ? 'income-tag' : 'expense-tag';
 
-            const rowId = 'row_' + idx;
-            const isExpanded = expandedRow === rowId;
+            // Суммы
+            const totalIncomeStr = group.totalIncome > 0 ?
+                group.totalIncome.toLocaleString('ru-RU', { minimumFractionDigits: 2 }) : '';
+            const totalExpenseStr = group.totalExpense > 0 ?
+                group.totalExpense.toLocaleString('ru-RU', { minimumFractionDigits: 2 }) : '';
 
-            // Проверяем наличие деталей для отображения
-            const hasDetails = (t.subcategory2 && t.subcategory2.trim() !== '') ||
-                               (t.subcategory3 && t.subcategory3.trim() !== '') ||
-                               (t.comment && t.comment.trim() !== '');
-
+            // Строка группы (Подкатегория 1 с суммами)
             html += `
-                <tr class="main-row" id="${rowId}" onclick="toggleDetail('${rowId}')">
-                    <td>${hasDetails ? `<span class="expand-icon ${isExpanded ? 'expanded' : ''}">▶</span>` : ''}</td>
-                    <td>${dateStr}</td>
-                    <td><span class="category-tag ${catTag}">${t.category || ''}</span></td>
-                    <td>${t.subcategory1 || ''}</td>
-                    <td class="text-income">${incomeStr ? '₽ ' + incomeStr : ''}</td>
-                    <td class="text-expense">${expenseStr ? '₽ ' + expenseStr : ''}</td>
-                    <td><span class="status-badge ${statusClass}">${t.status || '—'}</span></td>
+                <tr class="group-row ${groupClass}" onclick="toggleGroup('${key}')">
+                    <td><span class="expand-icon ${isExpanded ? 'expanded' : ''}">▶</span></td>
+                    <td><span class="category-tag ${catTag}">${group.category}</span></td>
+                    <td><strong>${group.sub1}</strong></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="text-income-sum">${totalIncomeStr ? '₽ ' + totalIncomeStr : ''}</td>
+                    <td class="text-expense-sum">${totalExpenseStr ? '₽ ' + totalExpenseStr : ''}</td>
+                    <td></td>
                 </tr>
-                ${isExpanded ? `
-                <tr class="detail-row">
-                    <td colspan="7">
-                        <div class="detail-grid">
-                            <span class="detail-label">Подкатегория 2:</span>
-                            <span class="detail-value ${!t.subcategory2 || t.subcategory2.trim() === '' ? 'empty' : ''}">${t.subcategory2 || '—'}</span>
-                            <span class="detail-label">Подкатегория 3:</span>
-                            <span class="detail-value ${!t.subcategory3 || t.subcategory3.trim() === '' ? 'empty' : ''}">${t.subcategory3 || '—'}</span>
-                            <span class="detail-label">Комментарий:</span>
-                            <span class="detail-value ${!t.comment || t.comment.trim() === '' ? 'empty' : ''}">${t.comment || '—'}</span>
-                        </div>
-                    </td>
-                </tr>
-                ` : ''}
             `;
+
+            // Детальные строки (если раскрыто)
+            if (isExpanded) {
+                group.items.forEach(item => {
+                    const dateStr = item.date ? item.date.split('-').reverse().join('.') : '';
+                    const incomeStr = (item.income || 0) > 0 ?
+                        (item.income || 0).toLocaleString('ru-RU', { minimumFractionDigits: 2 }) : '';
+                    const expenseStr = (item.expense || 0) > 0 ?
+                        (item.expense || 0).toLocaleString('ru-RU', { minimumFractionDigits: 2 }) : '';
+
+                    const statusMap = {
+                        'Оплачено': 'status-paid',
+                        'Запланировано': 'status-planned',
+                        'Просрочено': 'status-overdue',
+                        'В процессе': 'status-progress',
+                        'Не оплачено': 'status-notpaid'
+                    };
+                    const statusClass = statusMap[item.status] || 'status-notpaid';
+
+                    // Комментарий с обрезкой для компактности
+                    const comment = item.comment || '';
+                    const commentDisplay = comment.length > 30 ? comment.slice(0, 27) + '...' : comment;
+
+                    html += `
+                        <tr class="detail-row">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><span class="sub2-text">${item.subcategory2 || ''}</span></td>
+                            <td><span class="sub3-text">${item.subcategory3 || ''}</span></td>
+                            <td><span class="comment-text" title="${comment}">${commentDisplay}</span></td>
+                            <td class="text-income">${incomeStr ? '₽ ' + incomeStr : ''}</td>
+                            <td class="text-expense">${expenseStr ? '₽ ' + expenseStr : ''}</td>
+                            <td>
+                                <span class="date-text">${dateStr}</span>
+                                <span class="status-badge ${statusClass}" style="margin-left:6px;">${item.status || ''}</span>
+                            </td>
+                        </tr>
+                    `;
+                });
+            }
+
+            rowIndex++;
         });
 
         tbody.innerHTML = html;
     }
 
-    function toggleDetail(rowId) {
-        if (expandedRow === rowId) {
-            expandedRow = null;
+    // ============================================================
+    //  GROUP TOGGLE
+    // ============================================================
+
+    function toggleGroup(key) {
+        if (expandedGroups.has(key)) {
+            expandedGroups.delete(key);
         } else {
-            expandedRow = rowId;
+            expandedGroups.add(key);
         }
+        // Перерисовываем таблицу
         const filtered = getFilteredData();
         renderTable(filtered);
         updateRecordCount(filtered.length);
@@ -916,7 +1003,7 @@
     }
 
     function applyFilters() {
-        expandedRow = null;
+        expandedGroups.clear();
         render();
     }
 
@@ -924,7 +1011,7 @@
         document.getElementById('filterCategory').value = 'all';
         document.getElementById('filterSub1').value = 'all';
         document.getElementById('filterType').value = 'all';
-        expandedRow = null;
+        expandedGroups.clear();
         render();
     }
 
@@ -944,7 +1031,7 @@
         if (newIdx >= months.length) newIdx = months.length - 1;
 
         currentMonth = months[newIdx];
-        expandedRow = null;
+        expandedGroups.clear();
         render();
     }
 
@@ -962,35 +1049,6 @@
 
     function updateRecordCount(count) {
         document.getElementById('recordCount').textContent = 'Записей: ' + count;
-    }
-
-    // ============================================================
-    //  SORT
-    // ============================================================
-
-    function sortTable(field) {
-        const data = getFilteredData();
-
-        if (currentSort.field === field) {
-            currentSort.asc = !currentSort.asc;
-        } else {
-            currentSort.field = field;
-            currentSort.asc = true;
-        }
-
-        data.sort((a, b) => {
-            let va = a[field] ?? '';
-            let vb = b[field] ?? '';
-            if (typeof va === 'string') va = va.toLowerCase();
-            if (typeof vb === 'string') vb = vb.toLowerCase();
-            if (va < vb) return currentSort.asc ? -1 : 1;
-            if (va > vb) return currentSort.asc ? 1 : -1;
-            return 0;
-        });
-
-        expandedRow = null;
-        renderTable(data);
-        updateRecordCount(data.length);
     }
 
     // ============================================================
