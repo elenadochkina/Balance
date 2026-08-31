@@ -144,16 +144,14 @@
             margin-bottom: 14px;
             display: flex;
             flex-wrap: wrap;
-            align-items: flex-end;
-            gap: 10px;
+            align-items: center;
+            gap: 12px;
         }
 
         .filter-group {
             display: flex;
             flex-direction: column;
             gap: 2px;
-            flex: 1 1 110px;
-            min-width: 95px;
         }
 
         .filter-group label {
@@ -164,20 +162,16 @@
             letter-spacing: 0.5px;
         }
 
-        .filter-group select {
-            padding: 6px 10px;
-            border: 2px solid #dfe6e9;
-            border-radius: 6px;
-            font-size: 12px;
-            background: #fafafa;
-            transition: border-color 0.2s;
-            width: 100%;
-            cursor: pointer;
+        .filter-group .month-selector {
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .filter-group select:focus {
-            outline: none;
-            border-color: #6c5ce7;
+        .filter-group .month-selector .month-label {
+            font-size: 13px;
+            font-weight: 500;
+            color: #2d3436;
         }
 
         .filter-group .month-nav {
@@ -204,8 +198,8 @@
 
         .filter-group .month-nav .month-display {
             font-weight: 600;
-            font-size: 13px;
-            min-width: 80px;
+            font-size: 14px;
+            min-width: 100px;
             text-align: center;
         }
 
@@ -382,11 +376,6 @@
             font-size: 12px;
         }
 
-        table tbody tr.detail-row .detail-indent {
-            display: inline-block;
-            width: 16px;
-        }
-
         table tbody tr.detail-row .sub2-text {
             color: #2d3436;
         }
@@ -399,16 +388,16 @@
         table tbody tr.detail-row .comment-text {
             color: #636e72;
             font-size: 11px;
-            max-width: 150px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            display: inline-block;
+            word-wrap: break-word;
+            white-space: normal;
+            max-width: 200px;
+            line-height: 1.4;
         }
 
         table tbody tr.detail-row .date-text {
             color: #636e72;
             font-size: 11px;
+            white-space: nowrap;
         }
 
         .text-income {
@@ -490,10 +479,7 @@
         /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
             .summary { grid-template-columns: repeat(2, 1fr); }
-            .filters { gap: 8px; }
-            .filter-group { flex: 1 1 100px; min-width: 85px; }
-            table th, table td { padding: 4px 8px; font-size: 11px; }
-            table tbody tr.detail-row .comment-text { max-width: 100px; }
+            table tbody tr.detail-row .comment-text { max-width: 150px; }
         }
 
         @media (max-width: 768px) {
@@ -502,8 +488,7 @@
             .header h1 { font-size: 18px; justify-content: center; }
             .header-actions { justify-content: center; }
             .filters { padding: 10px 12px; flex-direction: column; align-items: stretch; }
-            .filter-group { flex: 1 1 auto; min-width: unset; }
-            .filter-group .month-nav { justify-content: center; }
+            .filter-group .month-selector { flex-direction: column; align-items: center; gap: 6px; }
             .filters-actions { margin-left: 0; justify-content: center; }
             .summary { grid-template-columns: 1fr 1fr; gap: 6px; }
             .summary-card { padding: 8px 12px; }
@@ -511,7 +496,7 @@
             .table-wrapper .table-header { flex-direction: column; text-align: center; }
             table th, table td { padding: 4px 6px; font-size: 10px; }
             table tbody tr.detail-row td { padding: 3px 6px 3px 16px; font-size: 10px; }
-            table tbody tr.detail-row .comment-text { max-width: 60px; }
+            table tbody tr.detail-row .comment-text { max-width: 100px; font-size: 10px; }
         }
 
         @media (max-width: 480px) {
@@ -521,9 +506,9 @@
             .summary { grid-template-columns: 1fr; }
             .summary-card .value { font-size: 16px; }
             .header-actions .file-info { font-size: 10px; padding: 3px 8px; }
-            .filter-group select { font-size: 11px; padding: 4px 8px; }
-            .filter-group .month-nav .month-display { font-size: 11px; min-width: 60px; }
-            table tbody tr.detail-row .comment-text { max-width: 40px; }
+            .filter-group .month-nav .month-display { font-size: 12px; min-width: 70px; }
+            .filter-group .month-selector .month-label { font-size: 11px; }
+            table tbody tr.detail-row .comment-text { max-width: 60px; font-size: 9px; }
         }
     </style>
 </head>
@@ -550,34 +535,14 @@
     <section class="filters">
         <div class="filter-group">
             <label>📅 Период</label>
-            <div class="month-nav">
-                <button onclick="changeMonth(-1)">◀</button>
-                <span class="month-display" id="monthDisplay">—</span>
-                <button onclick="changeMonth(1)">▶</button>
+            <div class="month-selector">
+                <span class="month-label">Выбери месяц</span>
+                <div class="month-nav">
+                    <button onclick="changeMonth(-1)">◀</button>
+                    <span class="month-display" id="monthDisplay">—</span>
+                    <button onclick="changeMonth(1)">▶</button>
+                </div>
             </div>
-        </div>
-
-        <div class="filter-group">
-            <label>📂 Категория</label>
-            <select id="filterCategory" onchange="applyFilters()">
-                <option value="all">Все</option>
-            </select>
-        </div>
-
-        <div class="filter-group">
-            <label>📂 Подкатегория 1</label>
-            <select id="filterSub1" onchange="applyFilters()">
-                <option value="all">Все</option>
-            </select>
-        </div>
-
-        <div class="filter-group">
-            <label>📊 Тип</label>
-            <select id="filterType" onchange="applyFilters()">
-                <option value="all">Все</option>
-                <option value="income">Доходы</option>
-                <option value="expense">Расходы</option>
-            </select>
         </div>
 
         <div class="filters-actions">
@@ -620,7 +585,7 @@
                         <th style="min-width:100px;">Подкат.1</th>
                         <th style="min-width:80px;">Подкат.2</th>
                         <th style="min-width:80px;">Подкат.3</th>
-                        <th style="min-width:120px;">Комментарий</th>
+                        <th style="min-width:140px;">Комментарий</th>
                         <th style="min-width:80px;">Доход (+)</th>
                         <th style="min-width:80px;">Расход (-)</th>
                         <th style="min-width:75px;">Дата</th>
@@ -728,7 +693,6 @@
 
     function render() {
         updateMonthDisplay();
-        populateFilterOptions();
         const filtered = getFilteredData();
         renderTable(filtered);
         renderSummary(filtered);
@@ -738,17 +702,7 @@
     function getFilteredData() {
         if (transactions.length === 0) return [];
 
-        const cat = document.getElementById('filterCategory').value;
-        const sub1 = document.getElementById('filterSub1').value;
-        const type = document.getElementById('filterType').value;
-
         let data = transactions.filter(t => t.month === currentMonth);
-
-        if (cat !== 'all') data = data.filter(t => t.category === cat);
-        if (sub1 !== 'all') data = data.filter(t => t.subcategory1 === sub1);
-
-        if (type === 'income') data = data.filter(t => (t.income || 0) > 0);
-        else if (type === 'expense') data = data.filter(t => (t.expense || 0) > 0);
 
         // Сортировка: сначала Доходы, потом Расходы, внутри по подкатегории 1
         data.sort((a, b) => {
@@ -826,7 +780,6 @@
         sortedKeys.forEach(key => {
             const group = groups[key];
             const isExpanded = expandedGroups.has(key);
-            const groupId = 'group_' + rowIndex;
 
             // Определяем класс для группы
             const groupClass = group.category === 'Доходы' ? 'group-income' : 'group-expense';
@@ -871,9 +824,8 @@
                     };
                     const statusClass = statusMap[item.status] || 'status-notpaid';
 
-                    // Комментарий с обрезкой для компактности
+                    // Комментарий с переносом строк
                     const comment = item.comment || '';
-                    const commentDisplay = comment.length > 30 ? comment.slice(0, 27) + '...' : comment;
 
                     html += `
                         <tr class="detail-row">
@@ -882,7 +834,7 @@
                             <td></td>
                             <td><span class="sub2-text">${item.subcategory2 || ''}</span></td>
                             <td><span class="sub3-text">${item.subcategory3 || ''}</span></td>
-                            <td><span class="comment-text" title="${comment}">${commentDisplay}</span></td>
+                            <td><span class="comment-text">${comment}</span></td>
                             <td class="text-income">${incomeStr ? '₽ ' + incomeStr : ''}</td>
                             <td class="text-expense">${expenseStr ? '₽ ' + expenseStr : ''}</td>
                             <td>
@@ -973,49 +925,6 @@
     }
 
     // ============================================================
-    //  FILTERS
-    // ============================================================
-
-    function populateFilterOptions() {
-        const monthData = transactions.filter(t => t.month === currentMonth);
-
-        const cats = new Set();
-        monthData.forEach(t => cats.add(t.category));
-        const catSelect = document.getElementById('filterCategory');
-        const currentCat = catSelect.value;
-        catSelect.innerHTML = '<option value="all">Все</option>';
-        Array.from(cats).filter(c => c).sort().forEach(c => {
-            catSelect.innerHTML += `<option value="${c}">${c}</option>`;
-        });
-        if (Array.from(cats).includes(currentCat)) catSelect.value = currentCat;
-        else catSelect.value = 'all';
-
-        const sub1s = new Set();
-        monthData.forEach(t => sub1s.add(t.subcategory1));
-        const sub1Select = document.getElementById('filterSub1');
-        const currentSub1 = sub1Select.value;
-        sub1Select.innerHTML = '<option value="all">Все</option>';
-        Array.from(sub1s).filter(s => s).sort().forEach(s => {
-            sub1Select.innerHTML += `<option value="${s}">${s}</option>`;
-        });
-        if (Array.from(sub1s).includes(currentSub1)) sub1Select.value = currentSub1;
-        else sub1Select.value = 'all';
-    }
-
-    function applyFilters() {
-        expandedGroups.clear();
-        render();
-    }
-
-    function resetFilters() {
-        document.getElementById('filterCategory').value = 'all';
-        document.getElementById('filterSub1').value = 'all';
-        document.getElementById('filterType').value = 'all';
-        expandedGroups.clear();
-        render();
-    }
-
-    // ============================================================
     //  MONTH NAVIGATION
     // ============================================================
 
@@ -1049,6 +958,15 @@
 
     function updateRecordCount(count) {
         document.getElementById('recordCount').textContent = 'Записей: ' + count;
+    }
+
+    // ============================================================
+    //  RESET FILTERS (оставили только для совместимости)
+    // ============================================================
+
+    function resetFilters() {
+        // Просто перерисовываем
+        render();
     }
 
     // ============================================================
