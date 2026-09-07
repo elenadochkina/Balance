@@ -378,29 +378,29 @@
   },
   {
     "id": 30,
-    "date": "2026-09-01",
+    "date": "2026-09-04",
     "month": "2026-09",
     "category": "Доходы",
     "subcategory1": "D1",
     "subcategory2": "ММ1001",
-    "subcategory3": "Руслан",
-    "income": 0,
+    "subcategory3": "Петр",
+    "income": 30000,
     "expense": 0,
-    "status": "Не оплачено",
-    "comment": "оплачено ранее за 06-07"
+    "status": "Оплачено",
+    "comment": "оплачено за Х (?)"
   },
   {
     "id": 31,
-    "date": "2026-09-01",
+    "date": "2026-09-05",
     "month": "2026-09",
     "category": "Доходы",
     "subcategory1": "D1",
     "subcategory2": "ММ1002",
-    "subcategory3": "Виктория",
-    "income": 0,
+    "subcategory3": "Полина М.",
+    "income": 60000,
     "expense": 0,
-    "status": "Не оплачено",
-    "comment": "за 08.26 не оплачено"
+    "status": "Оплачено",
+    "comment": "оплачено за Х (?)"
   },
   {
     "id": 32,
@@ -423,10 +423,10 @@
     "subcategory1": "D1",
     "subcategory2": "К384",
     "subcategory3": "сосед",
-    "income": 0,
+    "income": 60000,
     "expense": 0,
-    "status": "Не оплачено",
-    "comment": "за 09.26 не оплачено"
+    "status": "Оплачено",
+    "comment": "за 09.26 оплачено"
   },
   {
     "id": 34,
@@ -437,7 +437,7 @@
     "subcategory2": "ММ 430",
     "subcategory3": "коммуналка",
     "income": 0,
-    "expense": 2557.38,
+    "expense": 2606.44,
     "status": "Не оплачено",
     "comment": "за 08.26"
   },
@@ -450,7 +450,7 @@
     "subcategory2": "ММ 431",
     "subcategory3": "коммуналка",
     "income": 0,
-    "expense": 2557.38,
+    "expense": 2606.44,
     "status": "Не оплачено",
     "comment": "за 08.26"
   },
@@ -463,8 +463,8 @@
     "subcategory2": "ММ430",
     "subcategory3": "ЕПД (нежилое) капремонт",
     "income": 0,
-    "expense": 500,
-    "status": "Не оплачено",
+    "expense": 486.19,
+    "status": "Оплачено",
     "comment": "за 08.26"
   },
   {
@@ -476,8 +476,8 @@
     "subcategory2": "ММ 431",
     "subcategory3": "ЕПД (нежилое) капремонт",
     "income": 0,
-    "expense": 500,
-    "status": "Не оплачено",
+    "expense": 486.19,
+    "status": "Оплачено",
     "comment": "за 08.26"
   },
   {
@@ -489,8 +489,8 @@
     "subcategory2": "К384",
     "subcategory3": "коммуналка",
     "income": 0,
-    "expense": 16858.98,
-    "status": "Не оплачено",
+    "expense": 17806.11,
+    "status": "Оплачено",
     "comment": "за 08.26"
   },
   {
@@ -502,8 +502,8 @@
     "subcategory2": "ММ1001",
     "subcategory3": "коммуналка",
     "income": 0,
-    "expense": 2272.3,
-    "status": "Не оплачено",
+    "expense": 2376.09,
+    "status": "Оплачено",
     "comment": "за 08.26"
   },
   {
@@ -515,8 +515,8 @@
     "subcategory2": "ММ1002",
     "subcategory3": "коммуналка",
     "income": 0,
-    "expense": 2723.4,
-    "status": "Не оплачено",
+    "expense": 2847.8,
+    "status": "Оплачено",
     "comment": "за 08.26"
   },
   {
@@ -528,8 +528,8 @@
     "subcategory2": "К106",
     "subcategory3": "коммуналка",
     "income": 0,
-    "expense": 776.1,
-    "status": "Не оплачено",
+    "expense": 821.89,
+    "status": "Оплачено",
     "comment": "за 08.26"
   },
   {
@@ -555,7 +555,7 @@
     "subcategory3": "моэк (отопление)",
     "income": 0,
     "expense": 2100.09,
-    "status": "Не оплачено",
+    "status": "Оплачено",
     "comment": "за 08.26"
   },
   {
@@ -580,9 +580,9 @@
     "subcategory2": "ММ1001",
     "subcategory3": "ЕПД (нежилое) капремонт",
     "income": 0,
-    "expense": 1000,
+    "expense": 0,
     "status": "Не оплачено",
-    "comment": "за 09.26"
+    "comment": "за 08.26 оплачено в августе"
   },
   {
     "id": 46,
@@ -593,9 +593,9 @@
     "subcategory2": "ММ1002",
     "subcategory3": "ЕПД (нежилое) капремонт",
     "income": 0,
-    "expense": 1000,
+    "expense": 0,
     "status": "Не оплачено",
-    "comment": "за 09.26"
+    "comment": "за 08.26 оплачено в августе"
   },
   {
     "id": 47,
@@ -606,9 +606,9 @@
     "subcategory2": "К106",
     "subcategory3": "ЕПД (нежилое) капремонт",
     "income": 0,
-    "expense": 400,
+    "expense": 0,
     "status": "Не оплачено",
-    "comment": "за 09.26"
+    "comment": "за 08.26 оплачено в августе"
   },
   {
     "id": 48,
@@ -632,8 +632,8 @@
     "subcategory2": "9К",
     "subcategory3": "коммуналка",
     "income": 0,
-    "expense": 1065.08,
-    "status": "Не оплачено",
+    "expense": 1077.18,
+    "status": "Оплачено",
     "comment": "за 08.26"
   },
   {
@@ -645,8 +645,8 @@
     "subcategory2": "ММ18",
     "subcategory3": "коммуналка",
     "income": 0,
-    "expense": 3005.07,
-    "status": "Не оплачено",
+    "expense": 3039.2,
+    "status": "Оплачено",
     "comment": "за 08.26"
   },
   {
@@ -658,8 +658,8 @@
     "subcategory2": "ММ125",
     "subcategory3": "коммуналка",
     "income": 0,
-    "expense": 3309.38,
-    "status": "Не оплачено",
+    "expense": 3346.97,
+    "status": "Оплачено",
     "comment": "за 08.26"
   },
   {
@@ -684,8 +684,8 @@
     "subcategory2": "9К",
     "subcategory3": "ЕПД (нежилое) капремонт",
     "income": 0,
-    "expense": 300,
-    "status": "Не оплачено",
+    "expense": 182.73,
+    "status": "Оплачено",
     "comment": "за 08.26"
   },
   {
@@ -697,8 +697,8 @@
     "subcategory2": "ММ18",
     "subcategory3": "ЕПД (нежилое) капремонт",
     "income": 0,
-    "expense": 500,
-    "status": "Не оплачено",
+    "expense": 515.55,
+    "status": "Оплачено",
     "comment": "за 08.26"
   },
   {
@@ -710,8 +710,8 @@
     "subcategory2": "ММ125",
     "subcategory3": "ЕПД (нежилое) капремонт",
     "income": 0,
-    "expense": 500,
-    "status": "Не оплачено",
+    "expense": 578.16,
+    "status": "Оплачено",
     "comment": "за 08.26"
   },
   {
