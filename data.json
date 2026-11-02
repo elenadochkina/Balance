@@ -1359,10 +1359,10 @@
     "subcategory1": "D1",
     "subcategory2": "К384",
     "subcategory3": "сосед",
-    "income": 0,
+    "income": 60000,
     "expense": 0,
-    "status": "Не оплачено",
-    "comment": "за Х"
+    "status": "Оплачено",
+    "comment": "за 11.26"
   },
   {
     "id": 106,
@@ -1701,5 +1701,18 @@
     "expense": 567.76,
     "status": "Не оплачено",
     "comment": "за 10.26"
+  },
+  {
+    "id": 132,
+    "date": "2026-11-02",
+    "month": "2026-11",
+    "category": "Расходы",
+    "subcategory1": "Перевод Маме",
+    "subcategory2": "",
+    "subcategory3": "",
+    "income": 0,
+    "expense": 40000,
+    "status": "Оплачено",
+    "comment": ""
   }
 ]
